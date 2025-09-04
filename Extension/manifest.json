@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "AI Text Helper",
+  "version": "1.0",
+  "description": "Select text on any page to get an explanation or summary from Gemini.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "icons": {
+        "512":"images/icon-512.png"
+    },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/"
+  ]
+}
